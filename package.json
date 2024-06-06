@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:angular-ssr-azure": "node dist/angular-ssr-azure/server/server.mjs"
+    "serve:ssr:angular-ssr-azure": "node dist/angular-ssr-azure/server/server.mjs",
+    "up": "docker compose build && docker compose up"
   },
   "private": true,
   "dependencies": {
