@@ -47,6 +47,6 @@ az containerapp ingress enable -n angular-ssr -g <resource-group> --type externa
 
 Then navigate to the URL provided in the output of the last command.
 
-## Further help
+## Further help and contributing
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
