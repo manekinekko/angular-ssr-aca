@@ -22,30 +22,32 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Deploy to Azure Container Apps
+## Deploy to Azure Container Apps with the Azure Developer CLI
+
+Make sure you're logged in to Azure, or login
 
 ```bash
-az login
-az account set --subscription <subscription-id>
-az extension add --name containerapp --upgrade
-az provider register --namespace Microsoft.App
-az provider register --namespace Microsoft.OperationalInsights
-
-export RESOURCE_GROUP="<resource-group>"
-export LOCATION="canadacentral"
-export ENVIRONMENT="dev"
-export API_NAME="angular-ssr"
-
-az containerapp up \
-  --name $API_NAME \
-  --location $LOCATION \
-  --environment $ENVIRONMENT \
-  --source .
-
-az containerapp ingress enable -n angular-ssr -g <resource-group> --type external --target-port 4000 --transport auto --output json --query fqdn
+azd auth login
 ```
 
+To initialize an identical application to be deployed with the Azure Developer CLI, run
+
+```bash
+azd init
+```
+
+Provision and deploy your application, including container registration and enabling ingress
+
+```bash
+azd up
+```
 Then navigate to the URL provided in the output of the last command.
+
+To clean up your resources, run
+
+```bash
+azd down --purge
+```
 
 ## Further help
 
